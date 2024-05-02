@@ -1,0 +1,68 @@
+﻿@page "/employees"
+@using System.ComponentModel.DataAnnotations
+@inject HttpClient Http
+
+<PageTitle>Employees</PageTitle>
+
+<h1>Employees</h1>
+
+
+@if (EmployeesArray is null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Role</th>
+                <th scope="col">Designation</th>
+                <th scope="col">EmployeeCode</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var employee in EmployeesArray)
+            {
+                <tr>
+                    <td>@employee.Name</td>
+                    <td>@employee.Role</td>
+                    <td>@employee.Designation</td>
+                    <td>@employee.EmployeeCode</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Password</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    public class Employee
+    {
+        public string Name { get; set; } = string.Empty;
+
+        public string Role { get; set; } = string.Empty;
+
+        public string Designation { get; set; } = string.Empty;
+
+        public int EmployeeCode { get; set; }
+
+        [EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        public string Password { get; set; } = string.Empty;
+    }
+
+    private Employee[]? EmployeesArray { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // will update it now to be fetched from the api 
+        EmployeesArray = await Http.GetFromJsonAsync<Employee[]>("sample-data/Employees.json");
+    }
+}

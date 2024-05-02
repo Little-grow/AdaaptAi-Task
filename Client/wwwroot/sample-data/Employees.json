@@ -1,0 +1,46 @@
+﻿[
+  {
+    "name": "shahd 0",
+    "role": "intern",
+    "designation": "true",
+    "employeeCode": "112",
+    "email": "shahd@gmail.com",
+    "password": "123456"
+  },
+
+  {
+    "name": "shahd 1",
+    "role": "intern",
+    "designation": "true",
+    "employeeCode": "112",
+    "email": "shahd@gmail.com",
+    "password": "123456"
+  },
+
+  {
+    "name": "shahd 2",
+    "role": "intern",
+    "designation": "true",
+    "employeeCode": "112",
+    "email": "shahd@gmail.com",
+    "password": "123456"
+  },
+
+  {
+    "name": "shahd 3",
+    "role": "intern",
+    "designation": "true",
+    "employeeCode": "112",
+    "email": "shahd@gmail.com",
+    "password": "123456"
+  },
+
+  {
+    "name": "shahd 4",
+    "role": "intern",
+    "designation": "true",
+    "employeeCode": "112",
+    "email": "shahd@gmail.com",
+    "password": "123456"
+  }
+]
