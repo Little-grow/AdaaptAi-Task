@@ -1,10 +1,13 @@
-﻿using System.Security.Claims;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 
 namespace WebApplication1.DTO
 {
     public class TokenRequestDto
     {
-        public string Email { get; set; } 
-        public string Password { get; set; }
+        [EmailAddress]
+        public required string Email { get; set; }
+
+        public required string Password { get; set; }
     }
 }

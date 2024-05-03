@@ -8,6 +8,8 @@ namespace WebApplication1.DTO
 
         public string LastName { get; set; } = string.Empty;
 
+        public string Designation { get; set; } = string.Empty;
+
         public int EmployeeCode { get; set; }
 
         [EmailAddress]

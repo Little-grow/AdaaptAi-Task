@@ -3,9 +3,8 @@
     "Name": "New Profile",
     "Projects": [
       {
-        "Name": "WebApplication1.csproj",
-        "Action": "Start",
-        "DebugTarget": ""
+        "Name": "Api.csproj",
+        "Action": "Start"
       },
       {
         "Name": "..\\Client\\Client.csproj",
