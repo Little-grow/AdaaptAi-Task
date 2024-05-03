@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[8.0.2, )"
             },
+            "Microsoft.Extensions.Http": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
@@ -65,6 +69,10 @@
               "target": "Package",
               "version": "[8.0.2, )",
               "autoReferenced": true
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
             }
           },
           "imports": [

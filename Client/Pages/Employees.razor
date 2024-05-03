@@ -1,5 +1,6 @@
 ﻿@page "/employees"
 @using System.ComponentModel.DataAnnotations
+@using Client.Services
 @inject HttpClient Http
 
 <PageTitle>Employees</PageTitle>
@@ -21,7 +22,6 @@ else
                 <th scope="col">Designation</th>
                 <th scope="col">EmployeeCode</th>
                 <th scope="col">Email</th>
-                <th scope="col">Password</th>
             </tr>
         </thead>
 
@@ -34,7 +34,6 @@ else
                     <td>@employee.Designation</td>
                     <td>@employee.EmployeeCode</td>
                     <td>@employee.Email</td>
-                    <td>@employee.Password</td>
                 </tr>
             }
         </tbody>
@@ -55,14 +54,21 @@ else
         [EmailAddress]
         public string Email { get; set; } = string.Empty;
 
-        public string Password { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
     }
 
     private Employee[]? EmployeesArray { get; set; }
 
+    private readonly IEmployeeService _employeeService;
+
+    public Employees(IEmployeeService employeeService)
+    {
+        _employeeService = employeeService;
+    }
+
     protected override async Task OnInitializedAsync()
     {
         // will update it now to be fetched from the api 
-        EmployeesArray = await Http.GetFromJsonAsync<Employee[]>("sample-data/Employees.json");
+        EmployeesArray = (await _employeeService.GetEmployees()).ToArray();
     }
 }
