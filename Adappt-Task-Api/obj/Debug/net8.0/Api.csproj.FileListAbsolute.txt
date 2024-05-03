@@ -136,3 +136,4 @@ E:\TRACK Study\Adappt-Task\Adappt-Task-Api\obj\Debug\net8.0\refint\Api.dll
 E:\TRACK Study\Adappt-Task\Adappt-Task-Api\obj\Debug\net8.0\Api.pdb
 E:\TRACK Study\Adappt-Task\Adappt-Task-Api\obj\Debug\net8.0\Api.genruntimeconfig.cache
 E:\TRACK Study\Adappt-Task\Adappt-Task-Api\obj\Debug\net8.0\ref\Api.dll
+E:\TRACK Study\Adappt-Task\Adappt-Task-Api\obj\Debug\net8.0\Api.sourcelink.json
