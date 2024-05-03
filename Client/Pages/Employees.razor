@@ -2,6 +2,7 @@
 @using System.ComponentModel.DataAnnotations
 @using Client.Services
 @inject HttpClient Http
+@inject IEmployeeService _employeeService
 
 <PageTitle>Employees</PageTitle>
 
@@ -18,8 +19,8 @@ else
         <thead>
             <tr>
                 <th scope="col">Name</th>
-                <th scope="col">Role</th>
-                <th scope="col">Designation</th>
+@*                 <th scope="col">Role</th>
+ *@                <th scope="col">Designation</th>
                 <th scope="col">EmployeeCode</th>
                 <th scope="col">Email</th>
             </tr>
@@ -29,11 +30,11 @@ else
             @foreach (var employee in EmployeesArray)
             {
                 <tr>
-                    <td>@employee.Name</td>
-                    <td>@employee.Role</td>
+                    <td>@($"{employee.FirstName} {employee.LastName}")</td>
+                    @*<td>@employee.Role</td>*@             
                     <td>@employee.Designation</td>
                     <td>@employee.EmployeeCode</td>
-                    <td>@employee.Email</td>
+                    <td>@employee.EmailAddress</td>
                 </tr>
             }
         </tbody>
@@ -41,34 +42,29 @@ else
 }
 
 @code {
+
     public class Employee
     {
-        public string Name { get; set; } = string.Empty;
+        public string FirstName { get; set; } = string.Empty;
 
-        public string Role { get; set; } = string.Empty;
+        public string LastName { get; set; } = string.Empty;
+        // public string Role { get; set; } = string.Empty;
 
         public string Designation { get; set; } = string.Empty;
-
         public int EmployeeCode { get; set; }
 
         [EmailAddress]
-        public string Email { get; set; } = string.Empty;
+        public string EmailAddress { get; set; } = string.Empty;
 
         public string PasswordHash { get; set; } = string.Empty;
     }
 
     private Employee[]? EmployeesArray { get; set; }
 
-    private readonly IEmployeeService _employeeService;
-
-    public Employees(IEmployeeService employeeService)
-    {
-        _employeeService = employeeService;
-    }
 
     protected override async Task OnInitializedAsync()
     {
-        // will update it now to be fetched from the api 
+        // will update it now to be fetched from the api
         EmployeesArray = (await _employeeService.GetEmployees()).ToArray();
     }
 }
